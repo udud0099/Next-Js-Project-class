@@ -1,22 +1,22 @@
 const { createSlice, nanoid } = require("@reduxjs/toolkit");
 
 const initialState = {
-  users: [],
+  employees: [],
 };
 
 const Slice = createSlice({
-  name: "addUserSlice",
+  name: "addEmployeeSlice",
   initialState,
   reducers: {
-    addUser: (state, action) => {
+    addEmployee: (state, action) => {
       const data = {
         id: nanoid(),
-        name: action.name,
+        name: action.payload,
       };
-      state.users.push(data);
+      state.employees.push(data);
     },
   },
 });
 
-export const { addUser } = Slice.actions;
+export const { addEmployee } = Slice.actions;
 export default Slice.reducer;
